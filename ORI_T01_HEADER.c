@@ -72,8 +72,11 @@ int qsort_corredor_veiculos_secundario_idx(const void *a, const void *b){
 
 /* Cria o índice respectivo */
 void criar_corredores_idx() {
-    if (!corredores_idx)
+    int a = 0;
+    if (!corredores_idx) {
         corredores_idx = malloc(MAX_REGISTROS * sizeof(corredores_index));
+        a++;
+    }
  
     if (!corredores_idx) {
         printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -92,13 +95,16 @@ void criar_corredores_idx() {
     }
  
     qsort(corredores_idx, qtd_registros_corredores, sizeof(corredores_index), qsort_corredores_idx);
-    printf(INDICE_CRIADO, "corredores_idx");
+    if (a) printf(INDICE_CRIADO, "corredores_idx");
 }
 
 void criar_veiculos_idx() {
 	/*IMPLEMENTE A FUNÇÃO AQUI*/
-  if (!veiculos_idx)
+  int a = 0;
+  if (!veiculos_idx){
     veiculos_idx = malloc(MAX_REGISTROS * sizeof(veiculos_index));
+    a++;
+  }
 
   if (!veiculos_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -117,13 +123,16 @@ void criar_veiculos_idx() {
   }
 
   qsort(veiculos_idx, qtd_registros_veiculos, sizeof(veiculos_index), qsort_veiculos_idx);
-  printf(INDICE_CRIADO, "veiculos_idx");
+  if (a) printf(INDICE_CRIADO, "veiculos_idx");
 }
 
 void criar_pistas_idx() {
 	/*IMPLEMENTE A FUNÇÃO AQUI*/
-  if (!pistas_idx)
+  int a = 0;
+  if (!pistas_idx){
     pistas_idx = malloc(MAX_REGISTROS * sizeof(pistas_index));
+    a++;
+  }
 
   if (!pistas_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -142,13 +151,16 @@ void criar_pistas_idx() {
   }
 
   qsort(pistas_idx, qtd_registros_pistas, sizeof(pistas_index), qsort_pistas_idx);
-  printf(INDICE_CRIADO, "pistas_idx");
+  if (a) printf(INDICE_CRIADO, "pistas_idx");
 }
 
 void criar_corridas_idx() {
     /*IMPLEMENTE A FUNÇÃO AQUI*/
-  if (!corridas_idx)
+  int a = 0;
+  if (!corridas_idx){
     corridas_idx = malloc(MAX_REGISTROS * sizeof(corridas_index));
+    a++;
+  }
 
   if (!corridas_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -167,13 +179,16 @@ void criar_corridas_idx() {
   }
 
   qsort(corridas_idx, qtd_registros_corridas, sizeof(corridas_index), qsort_corridas_idx);
-  printf(INDICE_CRIADO, "corridas_idx");
+  if (a) printf(INDICE_CRIADO, "corridas_idx");
 }
 
 void criar_nome_pista_idx() {
     /*IMPLEMENTE A FUNÇÃO AQUI*/
-  if (!nome_pista_idx)
+  int a = 0;
+  if (!nome_pista_idx){
     nome_pista_idx = malloc(MAX_REGISTROS * sizeof(nome_pista_index));
+    a++;
+  }
 
   if (!nome_pista_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -192,13 +207,16 @@ void criar_nome_pista_idx() {
   }
 
   qsort(nome_pista_idx, qtd_registros_pistas, sizeof(nome_pista_index), qsort_nome_pista_idx);
-  printf(INDICE_CRIADO, "nome_pista_idx");
+  if (a) printf(INDICE_CRIADO, "nome_pista_idx");
 }
 
 void criar_preco_veiculo_idx() {
     /*IMPLEMENTE A FUNÇÃO AQUI*/
-  if (!preco_veiculo_idx)
+  int a = 0;
+  if (!preco_veiculo_idx){
     preco_veiculo_idx = malloc(MAX_REGISTROS * sizeof(preco_veiculo_index));
+    a++;
+  }
 
   if (!preco_veiculo_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -217,14 +235,17 @@ void criar_preco_veiculo_idx() {
   }
 
   qsort(preco_veiculo_idx, qtd_registros_veiculos, sizeof(preco_veiculo_index), qsort_preco_veiculo_idx);
-  printf(INDICE_CRIADO, "preco_veiculo_idx");
+  if (a) printf(INDICE_CRIADO, "preco_veiculo_idx");
 }
 
 void criar_corredor_veiculos_idx() {
     /*IMPLEMENTE A FUNÇÃO AQUI*/
+  int a = 0;
   corredor_veiculos_idx.compar = qsort_corredor_veiculos_secundario_idx;
-	if (!corredor_veiculos_idx.corredor_veiculos_secundario_idx)
+	if (!corredor_veiculos_idx.corredor_veiculos_secundario_idx){
     	corredor_veiculos_idx.corredor_veiculos_secundario_idx = malloc(MAX_REGISTROS * sizeof(corredor_veiculos_secundario_index));
+    a++;
+  }
 
   if (!corredor_veiculos_idx.corredor_veiculos_secundario_idx) {
     printf(ERRO_MEMORIA_INSUFICIENTE);
@@ -256,7 +277,7 @@ void criar_corredor_veiculos_idx() {
     }
   }
   qsort(corredor_veiculos_idx.corredor_veiculos_secundario_idx, corredor_veiculos_idx.qtd_registros_secundario, sizeof(corredor_veiculos_secundario_index), corredor_veiculos_idx.compar);
-  printf(INDICE_CRIADO, "corredor_veiculos_idx");
+  if (a) printf(INDICE_CRIADO, "corredor_veiculos_idx");
 }
 
 /* Exibe um registro com base no RRN */
