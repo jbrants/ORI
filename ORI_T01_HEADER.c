@@ -521,6 +521,9 @@ void cadastrar_corredor_menu(char *id_corredor, char *nome, char *apelido){
     current_datetime(c.cadastro);
     c.saldo = 0;
 
+    for (unsigned i = 0; i < QTD_MAX_VEICULO; i++)
+      strcpy(c.veiculos[i], "");
+
     int rrn = qtd_registros_corredores;
     escrever_registro_corredor(c, rrn);
     qtd_registros_corredores++;
