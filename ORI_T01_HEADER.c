@@ -673,6 +673,7 @@ void cadastrar_pista_menu(char *nome, int dificuldade, int distancia, int record
     escrever_registro_pista(p, rrn);
     qtd_registros_pistas++;
     criar_pistas_idx();
+    criar_nome_pista_idx();
     printf(SUCESSO);
   } 
 }
