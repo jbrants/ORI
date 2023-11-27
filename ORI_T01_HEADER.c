@@ -222,6 +222,7 @@ void criar_preco_veiculo_idx() {
 
 void criar_corredor_veiculos_idx() {
     /*IMPLEMENTE A FUNÇÃO AQUI*/
+  corredor_veiculos_idx.compar = qsort_corredor_veiculos_secundario_idx;
 	if (!corredor_veiculos_idx.corredor_veiculos_secundario_idx)
     	corredor_veiculos_idx.corredor_veiculos_secundario_idx = malloc(MAX_REGISTROS * sizeof(corredor_veiculos_secundario_index));
 
@@ -528,6 +529,7 @@ void cadastrar_corredor_menu(char *id_corredor, char *nome, char *apelido){
     escrever_registro_corredor(c, rrn);
     qtd_registros_corredores++;
     criar_corredores_idx();
+    criar_corredor_veiculos_idx();
     printf(SUCESSO);
   }
   else
