@@ -690,6 +690,7 @@ void executar_corrida_menu(char *id_pista, char *ocorrencia, char *id_corredores
     pistas_index *found_pista = busca_binaria((void*)&index_pista, pistas_idx, qtd_registros_pistas, sizeof(pistas_index), qsort_pistas_idx, true, 0);
     if (found_pista == NULL || found_pista->rrn < 0){
       printf(ERRO_REGISTRO_NAO_ENCONTRADO);
+      return;
     }
     for (int i = 0; i < 6; ++i){
       corredores_index index_corredor;
