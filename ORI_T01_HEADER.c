@@ -728,9 +728,12 @@ void executar_corrida_menu(char *id_pista, char *ocorrencia, char *id_corredores
     double valor = 6 * (TX_FIXA * p.dificuldade);
     Corredor c1, c2, c3;
     corredores_index index_corredor1, index_corredor2, index_corredor3;
-    strncpy(index_corredor1.id_corredor, id_corredores + (0 * TAM_ID_CORREDOR), TAM_ID_CORREDOR);
-    strncpy(index_corredor2.id_corredor, id_corredores + (1 * TAM_ID_CORREDOR), TAM_ID_CORREDOR);
-    strncpy(index_corredor3.id_corredor, id_corredores + (2 * TAM_ID_CORREDOR), TAM_ID_CORREDOR);
+    strncpy(index_corredor1.id_corredor, id_corredores + (0 * TAM_ID_CORREDOR), TAM_ID_CORREDOR-1);
+    strncpy(index_corredor2.id_corredor, id_corredores + (1 * TAM_ID_CORREDOR), TAM_ID_CORREDOR-1);
+    strncpy(index_corredor3.id_corredor, id_corredores + (2 * TAM_ID_CORREDOR), TAM_ID_CORREDOR-1);
+    index_corredor1.id_corredor[TAM_ID_CORREDOR-1] = '\0';
+    index_corredor2.id_corredor[TAM_ID_CORREDOR-1] = '\0';
+    index_corredor3.id_corredor[TAM_ID_CORREDOR-1] = '\0';
     corredores_index *found_corredor1 = busca_binaria((void*)&index_corredor1, corredores_idx, qtd_registros_corredores, sizeof(corredores_index), qsort_corredores_idx, false, 0);
     corredores_index *found_corredor2 = busca_binaria((void*)&index_corredor2, corredores_idx, qtd_registros_corredores, sizeof(corredores_index), qsort_corredores_idx, false, 0);
     corredores_index *found_corredor3 = busca_binaria((void*)&index_corredor3, corredores_idx, qtd_registros_corredores, sizeof(corredores_index), qsort_corredores_idx, false, 0);
